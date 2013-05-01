@@ -1,0 +1,18 @@
+body {
+	line-height: 1;
+	background-color: #8A969A;
+	color:black;
+	font-size: 125%;
+	font-family: Helvetica Neue, Helvetica, sans-serif;
+    margin-top: 60px;
+    padding: 0;
+	text-align: center; /* !!! */
+}
+
+.centered {
+    margin: 0 auto;
+    text-align: left;
+    width: 800px;
+}
+
+p { text-align:left; }
