@@ -1,8 +1,6 @@
 lychrel
 =======
 
-Lychrel Number Calculator
-
 Description
 -----------
 
