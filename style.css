@@ -26,6 +26,7 @@ button:focus {
 }
 
 input {
+  width: 200px;
   padding: 1em;
   display: inline-block;
   text-transform: uppercase;
