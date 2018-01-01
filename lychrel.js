@@ -1,33 +1,45 @@
-var concat="";
-var holder="";
-function reverse(s){ return s.split("").reverse().join(""); } /* reverse a string */
+;(function() {
+  var lychrel = {
+    concat : '',
+    holder: '',
+    isNumber: function (o) {
+      return ! isNaN (o-0) && o !== null && o !== "" && o !== false;
+    },
+    reverse: function(s) {
+      return s.split("").reverse().join("");
+    },
+    lychrel: function(num, count) {
+      lychrel.concat+=count+". "+num+" + " + lychrel.reverse(num.toString());
+      lychrel.concat+=" = "+ (num+parseInt(lychrel.reverse(num.toString())) )+"</br>";
+      num += parseInt(lychrel.reverse(num.toString()));
+      
+      if( num == lychrel.reverse(num.toString())) { 
+        lychrel.concat+= "</br>The palyndrome for "+lychrel.holder+ " is "+num+", formed after "+count;
+        lychrel.concat+= count > 1 ?  " iterations" :  " iteration";
+        lychrel.concat+= ".</br></br>";
+        return num; 
+      }
+      else {
+        lychrel.lychrel(num,count+1);
+      }
+      return num;
+    },
+    calculate: function() {
+      lychrel.concat="</br>";
 
-function lychrel (num,count) { /* calculates palindrome or adds then go */
+      var number = document.getElementById("number").value;
+      if (lychrel.isNumber(number)) {
+        lychrel.holder = number;
+        lychrel.lychrel(parseInt(number),1);
+        document.getElementById("results").innerHTML=lychrel.concat;
+      }
+      else {
+        alert("That was not a number. Try again.");
+      }
+    }
+  };
 
-	concat+=count+". "+num+" + " + reverse(num.toString());
-	concat+=" = "+ (num+parseInt(reverse(num.toString())) )+"</br>";
-	num += parseInt(reverse(num.toString()));
-	
-	if( num == reverse(num.toString())) { /* Checking for palindrome */
-		concat+="</br>The palyndrome for "+holder+ " is "+num+" , formed after "+count+ " iterations.</br></br>";
-		return num;	
-	}
-	else {	lychrel(num,count+1); }
-	return num;
-}
-
-function isNumber (o) {
-  return ! isNaN (o-0) && o !== null && o !== "" && o !== false;
-}
-
-function start() {
-	
-	concat="</br>";
-	var number=prompt("Please choose a natural number","Enter natural number here.");
-	if (isNumber(number)) {
-		holder = number;
-		lychrel(parseInt(number),1);
-		document.getElementById("demo").innerHTML=concat;
-	}
-	else { alert("That was not a number. Try again."); }
-}
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('calculate').addEventListener('click', lychrel.calculate);
+  }, false);
+})();
