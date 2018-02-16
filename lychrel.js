@@ -14,7 +14,7 @@
       num += parseInt(lychrel.reverse(num.toString()));
       
       if( num == lychrel.reverse(num.toString())) { 
-        lychrel.concat+= "</br>The palyndrome for "+lychrel.holder+ " is "+num+", formed after "+count;
+        lychrel.concat+= "</br>The palindrome for "+lychrel.holder+ " is "+num+", formed after "+count;
         lychrel.concat+= count > 1 ?  " iterations" :  " iteration";
         lychrel.concat+= ".</br></br>";
         return num; 
